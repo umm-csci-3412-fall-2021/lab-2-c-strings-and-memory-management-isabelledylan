@@ -25,7 +25,7 @@ TEST(Disemvowel, HandlePunctuation) {
 }
 
 TEST(Disemvowel, HandleLongString) {
-  char *str;
+  char *str, *output;
   int size;
   int i;
 
@@ -39,9 +39,12 @@ TEST(Disemvowel, HandleLongString) {
   }
   str[size-1] = '\0';
   
-  ASSERT_STREQ("xyz", disemvowel(str));
+  output = disemvowel(str);
+
+  ASSERT_STREQ("xyz", output);
 
   free(str);
+  free(output);
 }
 
 int main(int argc, char *argv[]) {
